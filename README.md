@@ -1,5 +1,5 @@
 ### Date created
-The Python script was created February 2025 as part of the Udacity Nanodegree [https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104](Introduction to Programming for Data Science).
+The Python script was created February 2025 as part of the Udacity Nanodegree [Introduction to Programming for Data Science](https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104).
 
 ### Project Title
 Exploring BikeShare data in three US Cities.
