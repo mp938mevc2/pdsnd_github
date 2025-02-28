@@ -13,21 +13,24 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 def get_filters():
-    """
+    '''
     This function starts by clearing the screen to prepare for the bikeshare prompt
     Asks user to specify a city, month, and day to analyze.
     Returns:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    """
+    '''
+    
     system('cls' if name == 'nt' else 'clear')
     print('Hello! Let\'s explore some US bikeshare data!')
+    
     '''
     The input for city, month, and day is requested via three separate while loops that continue 
     looping until a valid entry is made. To account for mismatched capitalization, the input is 
     changed to lower case on entry.
     '''
+    
     while True:
         city = input('We have data for Chicago, New York City, and Washington. Which city\'s data would you like to look at?  ').lower()
         if city == "chicago" or city == 'new york city' or city == 'washington':
@@ -57,7 +60,7 @@ def get_filters():
     return city, month, day
 
 def load_data(city, month, day):
-    """
+    '''
     Loads data for the specified city and filters by month and day if applicable.
 
     Args:
@@ -66,7 +69,8 @@ def load_data(city, month, day):
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
-    """
+    '''
+
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['Month'] = df['Start Time'].dt.month
@@ -89,14 +93,14 @@ def load_data(city, month, day):
     return df
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel.
+    '''
+    Displays statistics on the most frequent times of travel.
     
     Args:
         (df) df - dataframe with the data modified based on user entry.
     Returns:
         N/A - print output to screen only
-    
-    """
+    '''
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -130,15 +134,14 @@ def time_stats(df):
     print('\n' + '_' * 96 + '\n')
 
 def station_stats(df):
-    """
+    '''
     Displays statistics on the most popular stations and trip.
     
     Args:
         (df) df - dataframe with the data modified based on user entry.
     Returns:
         N/A - print output to screen only
-    
-    """
+    '''
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
@@ -165,14 +168,14 @@ def station_stats(df):
     print('\n' + '_' * 96 + '\n')
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration.
+    '''
+    Displays statistics on the total and average trip duration.
     
     Args:
         (df) df - dataframe with the data modified based on user entry.
     Returns:
         N/A - print output to screen only
-    
-    """
+    '''
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
@@ -190,15 +193,14 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """
+    '''
     Displays statistics on bikeshare users on three fields: bikeshare membership, gender, and age.
     
     Args:
         (df) df - dataframe with the data modified based on user entry.
     Returns:
         N/A - print output to screen only
-    
-    """
+    '''
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
@@ -242,14 +244,14 @@ def user_stats(df):
 
 
 def raw_data(df):
-    """
+    '''
     Displays the raw data five lines at a time if the user replies y to the input query.
     
     Args:
         (df) df - dataframe with the data modified based on user entry.
     Returns:
         N/A - print output to screen only
-    """
+    '''
     
     '''
     Initial check if the user wants to view the raw data. If y, the head method is used to get the first five 
@@ -294,7 +296,6 @@ def main():
         restart = input('\nWould you like to look at data for another city, month, or day? (y/n)  ')
         if restart.lower() != 'y':
             break
-
 
 if __name__ == "__main__":
 	main()
