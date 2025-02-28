@@ -1,1 +1,5 @@
+.gitignore
 .github/**
+chicago.csv
+new_tork_city.csv
+washington.csv
