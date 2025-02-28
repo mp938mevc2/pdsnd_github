@@ -88,7 +88,6 @@ def load_data(city, month, day):
 
     return df
 
-
 def time_stats(df):
     """Displays statistics on the most frequent times of travel.
     
@@ -115,6 +114,7 @@ def time_stats(df):
     Used mode on the dataframe calling the day of week column to get the day of the week 
     with the highest count of users.
     '''
+
     common_day = df['Day of Week'].mode()[0]
     print('The bikeshare\'s busiest days were {}s.'.format(common_day))
     
@@ -122,6 +122,7 @@ def time_stats(df):
     Used mode on the dataframe calling the start time column and used date time module 
     to get the hour with the highest count of users.
     '''
+
     common_hour = df['Start Time'].dt.hour.mode()[0]
     print('The bikeshare was used most during the {}:00 hour.'.format(common_hour))
     
@@ -129,7 +130,8 @@ def time_stats(df):
     print('\n' + '_' * 96 + '\n')
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip.
+    """
+    Displays statistics on the most popular stations and trip.
     
     Args:
         (df) df - dataframe with the data modified based on user entry.
@@ -151,6 +153,7 @@ def station_stats(df):
 
     # Used value_count with two arguments to get the pair of stations that are most used in conjunction with each other
     # value_counts requires higher version of Python
+
     try:
         most_station_combo = df.value_counts(['Start Station', 'End Station']).idxmax()
         print('The stations that were the most frequent origination and destination pair are',most_station_combo[0], 'and', most_station_combo[1] + '.')
@@ -210,6 +213,7 @@ def user_stats(df):
     was chosen. A for loop interates through the gender types and prints out both the index and the value 
     for the index.
     '''
+
     try:
         user_gender = df['Gender'].value_counts()
         print('\n')
@@ -245,13 +249,13 @@ def raw_data(df):
         (df) df - dataframe with the data modified based on user entry.
     Returns:
         N/A - print output to screen only
-    
     """
     
     '''
     Initial check if the user wants to view the raw data. If y, the head method is used to get the first five 
     lines of data from the df
     '''
+
     check1 = 'y'
     check1 = input("\nWould you like to view some of the raw data? (y/n)  ").lower()
     print(check1)
@@ -265,6 +269,7 @@ def raw_data(df):
     user wants more data, and the second to check if all the data has already been retrieved.The index (i) for 
     the loop is incremented by five in the if statement and five lines of data a printed at a time.
     '''
+    
     i = 5
     check2 = 'y'
     while check2 == 'y':
